@@ -7,6 +7,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: artifactory.otenv.com/react-dom@18.2.0(react@18.2.0)
+  react-script-hook:
+    specifier: ^1.7.2
+    version: artifactory.otenv.com/react-script-hook@1.7.2(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@swc/cli':
@@ -4089,6 +4092,19 @@ packages:
     name: react-is
     version: 18.2.0
     dev: true
+
+  artifactory.otenv.com/react-script-hook@1.7.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-fhyCEfXb94fag34UPRF0zry1XGwmVY+79iibWwTqAoOiCzYJQOYTiWJ7CnqglA9tMSV8g45cQpHCMcBwr7dwhA==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/react-script-hook/-/react-script-hook-1.7.2.tgz}
+    id: artifactory.otenv.com/react-script-hook/1.7.2
+    name: react-script-hook
+    version: 1.7.2
+    peerDependencies:
+      react: ^16.8.6 || 17 - 18
+      react-dom: ^16.8.6 || 17 - 18
+    dependencies:
+      react: artifactory.otenv.com/react@18.2.0
+      react-dom: artifactory.otenv.com/react-dom@18.2.0(react@18.2.0)
+    dev: false
 
   artifactory.otenv.com/react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/react/-/react-18.2.0.tgz}
