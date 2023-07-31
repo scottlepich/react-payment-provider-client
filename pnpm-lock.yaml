@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  dotenv:
+    specifier: ^16.3.1
+    version: artifactory.otenv.com/dotenv@16.3.1
   react:
     specifier: ^18.2.0
     version: artifactory.otenv.com/react@18.2.0
@@ -2189,6 +2192,13 @@ packages:
     name: dom-accessibility-api
     version: 0.5.16
     dev: true
+
+  artifactory.otenv.com/dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/dotenv/-/dotenv-16.3.1.tgz}
+    name: dotenv
+    version: 16.3.1
+    engines: {node: '>=12'}
+    dev: false
 
   artifactory.otenv.com/electron-to-chromium@1.4.476:
     resolution: {integrity: sha512-gzWl1m8pNy+5Kj17XcziNcbOhripjTqR2wAQmtdlFUngPYuFy7zUpJScVQAvCvQSFHNk3mS5fetNKW6BSpytFg==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/electron-to-chromium/-/electron-to-chromium-1.4.476.tgz}
