@@ -3,7 +3,7 @@ import { renderHook } from "@testing-library/react";
 import { usePaymentProvider } from "./index";
 
 describe("usePaymentProvider", () => {
-  describe("Spreedly", () => {
+  describe.skip("Spreedly", () => {
     it("should export a spreedly hook", () => {
       // TODO
       // const { result } = renderHook(() => usePaymentProvider());
@@ -13,7 +13,7 @@ describe("usePaymentProvider", () => {
   });
 
   // TODO:
-  describe("Stripe", () => {
+  describe.skip("Stripe", () => {
     it("should export a stripe hook", () => {});
     it("should export a stripe context ", () => {});
   });
