@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@types/react':
+    specifier: ^18.2.18
+    version: artifactory.otenv.com/@types/react@18.2.18
   dotenv:
     specifier: ^16.3.1
     version: artifactory.otenv.com/dotenv@16.3.1
@@ -1444,25 +1447,23 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/prop-types/-/prop-types-15.7.5.tgz}
     name: '@types/prop-types'
     version: 15.7.5
-    dev: true
 
   artifactory.otenv.com/@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/react-dom/-/react-dom-18.2.7.tgz}
     name: '@types/react-dom'
     version: 18.2.7
     dependencies:
-      '@types/react': artifactory.otenv.com/@types/react@18.2.17
+      '@types/react': artifactory.otenv.com/@types/react@18.2.18
     dev: true
 
-  artifactory.otenv.com/@types/react@18.2.17:
-    resolution: {integrity: sha512-u+e7OlgPPh+aryjOm5UJMX32OvB2E3QASOAqVMY6Ahs90djagxwv2ya0IctglNbNTexC12qCSMZG47KPfy1hAA==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/react/-/react-18.2.17.tgz}
+  artifactory.otenv.com/@types/react@18.2.18:
+    resolution: {integrity: sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/react/-/react-18.2.18.tgz}
     name: '@types/react'
-    version: 18.2.17
+    version: 18.2.18
     dependencies:
       '@types/prop-types': artifactory.otenv.com/@types/prop-types@15.7.5
       '@types/scheduler': artifactory.otenv.com/@types/scheduler@0.16.3
       csstype: artifactory.otenv.com/csstype@3.1.2
-    dev: true
 
   artifactory.otenv.com/@types/responselike@1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/responselike/-/responselike-1.0.0.tgz}
@@ -1476,7 +1477,6 @@ packages:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/scheduler/-/scheduler-0.16.3.tgz}
     name: '@types/scheduler'
     version: 0.16.3
-    dev: true
 
   artifactory.otenv.com/@types/stack-utils@2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@types/stack-utils/-/stack-utils-2.0.1.tgz}
@@ -2072,7 +2072,6 @@ packages:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/csstype/-/csstype-3.1.2.tgz}
     name: csstype
     version: 3.1.2
-    dev: true
 
   artifactory.otenv.com/debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/debug/-/debug-4.3.4.tgz}
