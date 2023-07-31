@@ -4,3 +4,5 @@ declare global {
     Spreedly: any;
   }
 }
+
+export {};

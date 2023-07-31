@@ -63,3 +63,5 @@ export interface SpreedlyPaymentMethod extends CreditCardData {
   verification_value: string;
   number: string;
 }
+
+export {};

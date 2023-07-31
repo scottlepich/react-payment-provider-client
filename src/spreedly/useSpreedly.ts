@@ -12,7 +12,7 @@ import {
   SpreedlyEvents,
   SpreedlyPaymentMethod,
   ThreeDSEvent,
-} from "./index";
+} from "../types/spreedly";
 
 import {
   CHALLENGE_IFRAME,
