@@ -1,8 +1,6 @@
 import "dotenv/config";
 
-import * as React from "react";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import useScript from "react-script-hook";
 
@@ -14,20 +12,16 @@ import {
   SpreedlyEvents,
   SpreedlyPaymentMethod,
   ThreeDSEvent,
+} from "./index";
+
+import {
   CHALLENGE_IFRAME,
   CHALLENGE_IFRAME_CLASSES,
   HIDDEN_IFRAME,
   SPREEDLY_CVV_FIELD,
   SPREEDLY_NUMBER_FIELD,
   SPREEDLY_SCRIPT_URL,
-} from "./index";
-
-// Window definition for spreedly
-declare global {
-  interface Window {
-    Spreedly: any;
-  }
-}
+} from "./constants";
 
 // useSpreedly Return Type
 type UseSpreedlyReturnType = {
@@ -46,6 +40,8 @@ type UseSpreedlyReturnType = {
 
 const environmentKey = process.env.SPREEDLY_DEMO || "";
 
+const { Spreedly } = window;
+
 export const useSpreedly = (): UseSpreedlyReturnType => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -54,7 +50,7 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   const [inputs, setInputs] = useState<InputField[]>([]);
   const [threeDSEvents, setThreeDSEvents] = useState<ThreeDSEvent[]>([]);
   const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
-  const threeDSLifecycle = React.useRef<any>();
+  const threeDSLifecycle = useRef<any>();
 
   // Load the Spreedly script.
   const [scriptLoading] = useScript({
@@ -63,21 +59,21 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   });
 
   useEffect(() => {
-    if (window.Spreedly) {
+    if (Spreedly) {
       setSpreedlyIsLoaded(true);
 
       const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } =
         SpreedlyEvents;
 
-      window.Spreedly.on(READY, () => {
+      Spreedly.on(READY, () => {
         setLoading(false);
       });
 
-      window.Spreedly.on(ERRORS, (errors: any) => {
+      Spreedly.on(ERRORS, (errors: any) => {
         setError(errors);
       });
 
-      window.Spreedly.on(
+      Spreedly.on(
         PAYMENT_METHOD,
         (token: string, pmData: SpreedlyPaymentMethod) => {
           setCardToken(token);
@@ -85,19 +81,19 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
         },
       );
 
-      window.Spreedly.on(INPUT, (name: string, value: string) => {
+      Spreedly.on(INPUT, (name: string, value: string) => {
         setInputs((inputs) => [...inputs, { name, value }]);
       });
 
-      window.Spreedly.on(THREEDS_STATUS, (data: any) => {
+      Spreedly.on(THREEDS_STATUS, (data: any) => {
         setThreeDSEvents((events) => [{ name: data.event, data }, ...events]);
       });
     }
   }, [scriptLoading]);
 
   const initializeSpreedly = () => {
-    if (window.Spreedly) {
-      window.Spreedly.init(environmentKey, {
+    if (Spreedly) {
+      Spreedly.init(environmentKey, {
         numberEl: SPREEDLY_NUMBER_FIELD,
         cvvEl: SPREEDLY_CVV_FIELD,
       });
@@ -105,8 +101,8 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   };
 
   const tokenizeCard = (creditCard: any) => {
-    if (window.Spreedly) {
-      window.Spreedly.tokenizeCreditCard(creditCard);
+    if (Spreedly) {
+      Spreedly.tokenizeCreditCard(creditCard);
     }
   };
 
@@ -115,8 +111,8 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   };
 
   const startThreeDS = (transactionToken: string) => {
-    if (window.Spreedly) {
-      threeDSLifecycle.current = new window.Spreedly.ThreeDS.Lifecycle({
+    if (Spreedly) {
+      threeDSLifecycle.current = new Spreedly.ThreeDS.Lifecycle({
         environmentKey,
         hiddenIframeLocation: HIDDEN_IFRAME,
         challengeIframeLocation: CHALLENGE_IFRAME,
@@ -124,7 +120,8 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
         challengeIframeClasses: CHALLENGE_IFRAME_CLASSES,
       });
 
-      console.log(`starting 3ds lifecycle for transaction ${transactionToken}`);
+      // TODO: should prob loglov3 this?
+      // console.log(`starting 3ds lifecycle for transaction ${transactionToken}`);
       threeDSLifecycle.current.start();
     }
   };

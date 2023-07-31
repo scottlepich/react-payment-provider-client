@@ -1,3 +1,10 @@
+// Window definition for spreedly
+declare global {
+  interface Window {
+    Spreedly: any;
+  }
+}
+
 export interface InputField {
   name: string;
   value: string;
