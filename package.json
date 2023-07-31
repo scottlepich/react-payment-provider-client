@@ -5,6 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest",
+    "swc": "swc ./src -d dist",
+    "clean": "rm -fr ./dist",
     "build": "tsup src/index.ts",
     "build:watch": "tsup src/index.ts --watch",
     "build:prod": "tsup src/index.ts --minify"
