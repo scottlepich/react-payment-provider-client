@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json.schemastore.org/swcrc",
   "jsc": {
     "externalHelpers": true,
     "parser": {
@@ -6,27 +7,14 @@
       "dynamicImport": false,
       "syntax": "typescript",
       "tsx": true
-    },
-    "transform": {
-      "react": {
-        "pragma": "React.createElement",
-        "pragmaFrag": "React.Fragment",
-        "throwIfNamespace": true,
-        "development": false,
-        "useBuiltins": false
-      },
-      "optimizer": {
-        "globals": {
-          "vars": {
-            "__DEBUG__": "true"
-          }
-        }
-      }
     }
   },
-  "env": {
-    "targets": {
-      "chrome": "79"
-    }
-  }
+  "module": {
+    "type": "commonjs",
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  },
+  "exclude": [".*.test.tsx?$", "types/*"]
 }
