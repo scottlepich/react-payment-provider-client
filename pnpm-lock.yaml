@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   dotenv:
     specifier: ^16.3.1
@@ -23,7 +27,10 @@ devDependencies:
     version: artifactory.otenv.com/@swc/cli@0.1.62(@swc/core@1.3.71)
   '@swc/core':
     specifier: ^1.3.71
-    version: artifactory.otenv.com/@swc/core@1.3.71
+    version: artifactory.otenv.com/@swc/core@1.3.71(@swc/helpers@0.5.1)
+  '@swc/helpers':
+    specifier: ^0.5.1
+    version: artifactory.otenv.com/@swc/helpers@0.5.1
   '@swc/jest':
     specifier: ^0.2.27
     version: artifactory.otenv.com/@swc/jest@0.2.27(@swc/core@1.3.71)
@@ -933,7 +940,7 @@ packages:
         optional: true
     dependencies:
       '@mole-inc/bin-wrapper': artifactory.otenv.com/@mole-inc/bin-wrapper@8.0.1
-      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71
+      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71(@swc/helpers@0.5.1)
       commander: artifactory.otenv.com/commander@7.2.0
       fast-glob: artifactory.otenv.com/fast-glob@3.3.1
       semver: artifactory.otenv.com/semver@7.5.4
@@ -1031,8 +1038,9 @@ packages:
     dev: true
     optional: true
 
-  artifactory.otenv.com/@swc/core@1.3.71:
+  artifactory.otenv.com/@swc/core@1.3.71(@swc/helpers@0.5.1):
     resolution: {integrity: sha512-T8dqj+SV/S8laW/FGmKHhCGw1o4GRUvJ2jHfbYgEwiJpeutT9uavHvG02t39HJvObBJ52EZs/krGtni4U5928Q==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@swc/core/-/core-1.3.71.tgz}
+    id: artifactory.otenv.com/@swc/core/1.3.71
     name: '@swc/core'
     version: 1.3.71
     engines: {node: '>=10'}
@@ -1042,6 +1050,8 @@ packages:
     peerDependenciesMeta:
       '@swc/helpers':
         optional: true
+    dependencies:
+      '@swc/helpers': artifactory.otenv.com/@swc/helpers@0.5.1
     optionalDependencies:
       '@swc/core-darwin-arm64': artifactory.otenv.com/@swc/core-darwin-arm64@1.3.71
       '@swc/core-darwin-x64': artifactory.otenv.com/@swc/core-darwin-x64@1.3.71
@@ -1055,6 +1065,14 @@ packages:
       '@swc/core-win32-x64-msvc': artifactory.otenv.com/@swc/core-win32-x64-msvc@1.3.71
     dev: true
 
+  artifactory.otenv.com/@swc/helpers@0.5.1:
+    resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@swc/helpers/-/helpers-0.5.1.tgz}
+    name: '@swc/helpers'
+    version: 0.5.1
+    dependencies:
+      tslib: artifactory.otenv.com/tslib@2.6.1
+    dev: true
+
   artifactory.otenv.com/@swc/jest@0.2.27(@swc/core@1.3.71):
     resolution: {integrity: sha512-Xt8EJ6Wy0NYVL8KDPcDMsuUSzyV2UAByamyy28x2iDZCJw2eVz3acedCGBYxxlPR/DNr6QbA35OSymuXhC9QVA==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@swc/jest/-/jest-0.2.27.tgz}
     id: artifactory.otenv.com/@swc/jest/0.2.27
@@ -1065,7 +1083,7 @@ packages:
       '@swc/core': '*'
     dependencies:
       '@jest/create-cache-key-function': artifactory.otenv.com/@jest/create-cache-key-function@27.5.1
-      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71
+      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71(@swc/helpers@0.5.1)
       jsonc-parser: artifactory.otenv.com/jsonc-parser@3.2.0
     dev: true
 
@@ -4281,7 +4299,7 @@ packages:
         optional: true
     dependencies:
       '@cspotcode/source-map-support': artifactory.otenv.com/@cspotcode/source-map-support@0.8.1
-      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71
+      '@swc/core': artifactory.otenv.com/@swc/core@1.3.71(@swc/helpers@0.5.1)
       '@tsconfig/node10': artifactory.otenv.com/@tsconfig/node10@1.0.9
       '@tsconfig/node12': artifactory.otenv.com/@tsconfig/node12@1.0.11
       '@tsconfig/node14': artifactory.otenv.com/@tsconfig/node14@1.0.3
@@ -4296,6 +4314,12 @@ packages:
       typescript: artifactory.otenv.com/typescript@5.1.6
       v8-compile-cache-lib: artifactory.otenv.com/v8-compile-cache-lib@3.0.1
       yn: artifactory.otenv.com/yn@3.1.1
+    dev: true
+
+  artifactory.otenv.com/tslib@2.6.1:
+    resolution: {integrity: sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==, registry: http://artifactory.otenv.com:8081/artifactory/api/npm/npm-virtual, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/tslib/-/tslib-2.6.1.tgz}
+    name: tslib
+    version: 2.6.1
     dev: true
 
   artifactory.otenv.com/type-detect@4.0.8:
