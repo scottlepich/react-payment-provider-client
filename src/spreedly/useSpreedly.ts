@@ -12,7 +12,7 @@ import {
   SpreedlyEvents,
   SpreedlyPaymentMethod,
   ThreeDSEvent,
-} from "../types/spreedly";
+} from "~types/spreedly";
 
 import {
   CHALLENGE_IFRAME,
@@ -21,7 +21,7 @@ import {
   SPREEDLY_CVV_FIELD,
   SPREEDLY_NUMBER_FIELD,
   SPREEDLY_SCRIPT_URL,
-} from "./constants";
+} from "~spreedly/constants";
 
 // useSpreedly Return Type
 type UseSpreedlyReturnType = {
