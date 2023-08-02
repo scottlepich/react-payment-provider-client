@@ -1,10 +1,13 @@
 import "dotenv/config";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useReducer, useState } from "react";
 
 import useScript from "react-script-hook";
 
 import { createSingletonHook } from "./singletonHook";
+
+import initialState from "./initialState";
+import reducer from "./reducer";
 
 import {
   CreditCardData,
@@ -51,6 +54,10 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   const [threeDSEvents, setThreeDSEvents] = useState<ThreeDSEvent[]>([]);
   const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
   const threeDSLifecycle = useRef<any>();
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log({ state, dispatch });
 
   // Load the Spreedly script.
   const [scriptLoading] = useScript({

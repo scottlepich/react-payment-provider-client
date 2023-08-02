@@ -4,9 +4,14 @@ export interface InputField {
 }
 
 export interface ThreeDSEvent {
-  name: string;
   data: any;
+  name: string;
 }
+
+export type CreditCard = {
+  data: CreditCardData | undefined;
+  token: string | undefined;
+};
 
 // Additional fields for Spreedly.tokenizeCreditCard https://docs.spreedly.com/reference/iframe/v1/#tokenization
 // Must provide first_name and last_name OR full_name to tokenize
@@ -63,5 +68,15 @@ export interface SpreedlyPaymentMethod extends CreditCardData {
   verification_value: string;
   number: string;
 }
+
+// Client state
+export type State = {
+  card: CreditCard;
+  error: Error | undefined;
+  inputs: InputField[];
+  loading: boolean;
+  scriptIsLoaded: boolean;
+  threeDsEvents: ThreeDSEvent[];
+};
 
 export {};
