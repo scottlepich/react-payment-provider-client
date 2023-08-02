@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import { useEffect, useRef, useReducer, useState } from "react";
+import { useEffect, useRef, useReducer, useState, Reducer } from "react";
 
 import useScript from "react-script-hook";
 
@@ -55,7 +55,10 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
   const threeDSLifecycle = useRef<any>();
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer<Reducer<any, typeof initialState>>(
+    reducer,
+    initialState,
+  );
 
   console.log({ state, dispatch });
 
