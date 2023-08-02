@@ -15,6 +15,7 @@ import type {
   SpreedlyPaymentMethod,
   State,
   ThreeDSEvent,
+  Actions,
 } from "~types/spreedly.d.ts";
 
 import {
@@ -41,7 +42,7 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
   const threeDSLifecycle = useRef<any>();
 
-  const [state, dispatch] = useReducer<Reducer<any, State>>(
+  const [state, dispatch] = useReducer<Reducer<State, Actions>>(
     reducer,
     initialState,
   );
