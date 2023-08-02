@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "swc ./src -d ./dist",
+    "build": "pnpm run clean && pnpm run build:tsc",
+    "build:tsc": "tsc",
+    "build:swc": "swc ./src -d ./dist",
     "clean": "rm -fr ./dist"
   },
   "keywords": [
