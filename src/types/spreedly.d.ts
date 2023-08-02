@@ -41,14 +41,6 @@ export interface CreditCardData {
   metadata?: Record<string, number | string>;
 }
 
-export enum SpreedlyEvents {
-  PAYMENT_METHOD = "paymentMethod", // Success call from Spreedly.tokenizeCreditCard.
-  ERRORS = "errors",
-  THREEDS_STATUS = "3ds:status",
-  READY = "ready",
-  INPUT = "input",
-}
-
 // Spreedly Payment Method Object https://docs.spreedly.com/reference/api/v1/#show33
 export interface SpreedlyPaymentMethod extends CreditCardData {
   token: string;
@@ -69,9 +61,14 @@ export interface SpreedlyPaymentMethod extends CreditCardData {
   number: string;
 }
 
-// Client state
+// TODO:
+export interface StripePaymentMethod extends CreditCardData {}
+
+export type PaymentCard = SpreedlyPaymentMethod | StripePaymentMethod;
+
+// State management
 export type State = {
-  card: CreditCard;
+  card: PaymentCard;
   error: Error | undefined;
   inputs: InputField[];
   loading: boolean;
