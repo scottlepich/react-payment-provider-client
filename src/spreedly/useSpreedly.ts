@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import { useEffect, useRef, useReducer, useState, Reducer } from "react";
+import { useEffect, useRef, useReducer, Reducer } from "react";
 
 import useScript from "react-script-hook";
 
@@ -9,14 +9,14 @@ import { createSingletonHook } from "./singletonHook";
 import initialState from "./initialState";
 import reducer from "./reducer";
 
-import type {
+import {
   UseSpreedlyReturnType,
-  InputField,
   SpreedlyPaymentMethod,
   State,
-  ThreeDSEvent,
   Actions,
-} from "~types/spreedly.d.ts";
+  ActionTypes,
+  CreditCardData,
+} from "~types/spreedly";
 
 import {
   CHALLENGE_IFRAME,
@@ -32,23 +32,24 @@ const environmentKey = process.env.SPREEDLY_DEMO || "";
 
 const { Spreedly } = window;
 
-export const useSpreedly = (): UseSpreedlyReturnType => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [cardToken, setCardToken] = useState("");
-  const [cardData, setCardData] = useState<SpreedlyPaymentMethod>();
-  const [inputs, setInputs] = useState<InputField[]>([]);
-  const [threeDSEvents, setThreeDSEvents] = useState<ThreeDSEvent[]>([]);
-  const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
-  const threeDSLifecycle = useRef<any>();
+const {
+  SET_ERRORS,
+  SET_3DS_EVENTS,
+  SET_CREDIT_CARD,
+  SET_INPUTS,
+  SET_READY,
+  SET_SRC_LOADED,
+} = ActionTypes;
 
+export const useSpreedly = (): UseSpreedlyReturnType => {
   const [state, dispatch] = useReducer<Reducer<State, Actions>>(
     reducer,
     initialState,
   );
 
-  console.log({ state, dispatch });
+  const threeDSLifecycle = useRef<any>();
 
+  //   console.log({ state, dispatch });
   // Load the Spreedly script.
   const [scriptLoading] = useScript({
     src: SPREEDLY_SCRIPT_URL,
@@ -57,37 +58,52 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
 
   useEffect(() => {
     if (Spreedly) {
-      setSpreedlyIsLoaded(true);
+      dispatch({
+        type: SET_SRC_LOADED,
+      });
 
       const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } =
         SpreedlyEvents;
 
       Spreedly.on(READY, () => {
-        setLoading(false);
+        dispatch({
+          type: SET_READY,
+        });
       });
 
-      Spreedly.on(ERRORS, (errors: any) => {
-        setError(errors);
+      Spreedly.on(ERRORS, (error: Error) => {
+        dispatch({
+          type: SET_ERRORS,
+          error,
+        });
       });
 
-      Spreedly.on(
-        PAYMENT_METHOD,
-        (token: string, pmData: SpreedlyPaymentMethod) => {
-          setCardToken(token);
-          setCardData(pmData);
-        },
-      );
+      Spreedly.on(PAYMENT_METHOD, (token: string, data: CreditCardData) => {
+        dispatch({
+          type: SET_CREDIT_CARD,
+          card: {
+            token,
+            data,
+          },
+        });
+      });
 
       Spreedly.on(INPUT, (name: string, value: string) => {
-        setInputs((inputs) => [...inputs, { name, value }]);
+        dispatch({
+          type: SET_INPUTS,
+          inputs: [...state.inputs, { name, value }],
+        });
       });
 
+      // TODO: 3ds status data type
       Spreedly.on(THREEDS_STATUS, (data: any) => {
-        setThreeDSEvents((events) => [{ name: data.event, data }, ...events]);
+        dispatch({
+          type: SET_3DS_EVENTS,
+          threeDsEvents: [{ name: data.event, data }, ...state.threeDsEvents],
+        });
       });
     }
   }, [scriptLoading]);
-
   const initializeSpreedly = () => {
     if (Spreedly) {
       Spreedly.init(environmentKey, {
@@ -104,7 +120,10 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   };
 
   const clearErrors = () => {
-    setError(null);
+    dispatch({
+      type: SET_ERRORS,
+      error: undefined,
+    });
   };
 
   const startThreeDS = (transactionToken: string) => {
@@ -116,21 +135,21 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
         transactionToken: transactionToken,
         challengeIframeClasses: CHALLENGE_IFRAME_CLASSES,
       });
-
-      // TODO: should prob loglov3 this?
+      // TODO: track when 3ds journey is triggered
       // console.log(`starting 3ds lifecycle for transaction ${transactionToken}`);
       threeDSLifecycle.current.start();
     }
   };
 
+  // TODO: cleanup return values
   return {
-    loading,
-    error,
-    cardToken,
-    inputs,
-    threeDSEvents,
-    cardData,
-    spreedlyIsLoaded,
+    loading: state.loading,
+    error: state.error,
+    cardToken: state.card.token || "",
+    inputs: state.inputs,
+    threeDSEvents: state.threeDsEvents,
+    cardData: state.card.data as SpreedlyPaymentMethod,
+    spreedlyIsLoaded: state.scriptIsLoaded,
     tokenizeCard,
     startThreeDS,
     initializeSpreedly,
