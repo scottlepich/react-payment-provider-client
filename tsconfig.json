@@ -2,18 +2,26 @@
   "$schema": "http://json.schemastore.org/tsconfig",
   "extends": "@opentable/webstack-tsconfig/base.json",
   "ts-node": {
-    "swc": true
+    "swc": true,
+    "compilerOptions": {
+      "declaration": false,
+      "emitDeclarationOnly": false
+    }
   },
   "compilerOptions": {
-    "lib": ["DOM"],
-    "rootDir": ".",
+    "declaration": true,
+    "emitDeclarationOnly": false,
     "jsx": "react-jsx",
-    "resolveJsonModule": true,
+    "lib": ["DOM", "ES2022"],
+    "noErrorTruncation": true,
+    "outDir": "dist",
     "paths": {
       "~spreedly/*": ["./src/spreedly/*"],
-      "~types/*": ["./types/*"]
+      "~types/*": ["./src/types/*"]
     },
-    "noErrorTruncation": true
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "exclude": ["./src/**.test.ts", "node_modules"],
   "include": ["./src/**/*.ts", "./src/**/*.tsx"]
