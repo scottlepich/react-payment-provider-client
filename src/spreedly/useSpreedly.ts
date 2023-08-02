@@ -10,7 +10,7 @@ import initialState from "./initialState";
 import reducer from "./reducer";
 
 import type {
-  CreditCardData,
+  UseSpreedlyReturnType,
   InputField,
   SpreedlyPaymentMethod,
   State,
@@ -26,21 +26,6 @@ import {
   SPREEDLY_SCRIPT_URL,
   SpreedlyEvents,
 } from "~spreedly/constants";
-
-// useSpreedly Return Type
-type UseSpreedlyReturnType = {
-  loading: boolean;
-  error: any;
-  cardToken: string;
-  inputs: InputField[];
-  threeDSEvents: ThreeDSEvent[];
-  cardData?: SpreedlyPaymentMethod;
-  spreedlyIsLoaded: boolean;
-  tokenizeCard: (creditCard: CreditCardData) => void;
-  startThreeDS: (transactionToken: string) => void;
-  initializeSpreedly: () => void;
-  clearErrors: () => void;
-};
 
 const environmentKey = process.env.SPREEDLY_DEMO || "";
 

@@ -1,3 +1,18 @@
+// useSpreedly Return Type
+export type UseSpreedlyReturnType = {
+  loading: boolean;
+  error: any;
+  cardToken: string;
+  inputs: InputField[];
+  threeDSEvents: ThreeDSEvent[];
+  cardData?: SpreedlyPaymentMethod;
+  spreedlyIsLoaded: boolean;
+  tokenizeCard: (creditCard: CreditCardData) => void;
+  startThreeDS: (transactionToken: string) => void;
+  initializeSpreedly: () => void;
+  clearErrors: () => void;
+};
+
 export interface InputField {
   name: string;
   value: string;
