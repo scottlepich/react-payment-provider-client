@@ -24,7 +24,7 @@ export const createSingletonHook = <P, S>(
     const value = useContext(Context);
     if (typeof value === "undefined") {
       throw new Error(
-        "Component must be a wrapped in a singleton hook Provider",
+        "Component with usePaymentProvider (hook) must be a wrapped in a PaymentProvider (context)",
       );
     }
     return value;

@@ -1,7 +1,37 @@
-// TODO: return hooks for payment provider integration
+import { createSingletonHook } from "./singletonHook";
 
-interface UsePaymentProvider {}
+import useSpreedly from "~spreedly/useSpreedly";
 
-type ReturnType = {};
+export enum PaymentProviderNames {
+  Spreedly = "spreedly",
+  // TODO: Stripe: "stripe";
+}
 
-export const usePaymentProvider: UsePaymentProvider = (): ReturnType => ({});
+interface UsePaymentProvider {
+  name: PaymentProviderNames;
+}
+
+type ReturnType = {
+  usePayment: any;
+  PaymentProvider: any;
+};
+
+export const usePaymentProvider = ({
+  name,
+}: UsePaymentProvider): ReturnType => {
+  if (name === PaymentProviderNames.Spreedly) {
+    // TODO: move here
+    // Script attach
+    // env key
+
+    const [usePayment, PaymentProvider] = createSingletonHook(useSpreedly);
+
+    return {
+      usePayment,
+      PaymentProvider,
+    };
+    // TODO: elseif stripe
+  } else {
+    throw new Error("Unknown PaymentProviderName passed to usePaymentProvider");
+  }
+};

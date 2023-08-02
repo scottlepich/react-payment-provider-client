@@ -4,9 +4,8 @@ import { useEffect, useRef, useReducer, Reducer } from "react";
 
 import useScript from "react-script-hook";
 
-import { createSingletonHook } from "./singletonHook";
-
 import initialState from "./initialState";
+
 import reducer from "./reducer";
 
 import {
@@ -32,6 +31,8 @@ const environmentKey = process.env.SPREEDLY_DEMO || "";
 
 const { Spreedly } = window;
 
+const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } = SpreedlyEvents;
+
 const {
   SET_ERRORS,
   SET_3DS_EVENTS,
@@ -49,7 +50,6 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
 
   const threeDSLifecycle = useRef<any>();
 
-  //   console.log({ state, dispatch });
   // Load the Spreedly script.
   const [scriptLoading] = useScript({
     src: SPREEDLY_SCRIPT_URL,
@@ -61,9 +61,6 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
       dispatch({
         type: SET_SRC_LOADED,
       });
-
-      const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } =
-        SpreedlyEvents;
 
       Spreedly.on(READY, () => {
         dispatch({
@@ -104,6 +101,7 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
       });
     }
   }, [scriptLoading]);
+
   const initializeSpreedly = () => {
     if (Spreedly) {
       Spreedly.init(environmentKey, {
@@ -157,5 +155,4 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   };
 };
 
-export const [useSpreedlySingleton, SpreedlySingletonProvider] =
-  createSingletonHook(useSpreedly);
+export default useSpreedly;
