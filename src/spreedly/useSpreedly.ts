@@ -9,13 +9,13 @@ import { createSingletonHook } from "./singletonHook";
 import initialState from "./initialState";
 import reducer from "./reducer";
 
-import {
+import type {
   CreditCardData,
   InputField,
-  SpreedlyEvents,
   SpreedlyPaymentMethod,
+  State,
   ThreeDSEvent,
-} from "~types/spreedly";
+} from "~types/spreedly.d.ts";
 
 import {
   CHALLENGE_IFRAME,
@@ -24,6 +24,7 @@ import {
   SPREEDLY_CVV_FIELD,
   SPREEDLY_NUMBER_FIELD,
   SPREEDLY_SCRIPT_URL,
+  SpreedlyEvents,
 } from "~spreedly/constants";
 
 // useSpreedly Return Type
@@ -55,7 +56,7 @@ export const useSpreedly = (): UseSpreedlyReturnType => {
   const [spreedlyIsLoaded, setSpreedlyIsLoaded] = useState(false);
   const threeDSLifecycle = useRef<any>();
 
-  const [state, dispatch] = useReducer<Reducer<any, typeof initialState>>(
+  const [state, dispatch] = useReducer<Reducer<any, State>>(
     reducer,
     initialState,
   );
