@@ -24,9 +24,8 @@ const config: Config = {
   rootDir: process.cwd(),
   testMatch: ["**/?(*.)+(spec|test).[tj]s?(x)"],
   testPathIgnorePatterns: ["/node_modules/", "dist/"],
-
-  // Use swc jest for react
   transform: {
+    // Use swc jest for react
     ".*\\.(tsx?)$": [
       "@swc/jest",
       {

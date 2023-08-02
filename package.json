@@ -14,6 +14,10 @@
   ],
   "author": "slepich@opentable.com",
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18.12.1",
+    "pnpm": ">=8.6.11"
+  },
   "devDependencies": {
     "@opentable/webstack-tsconfig": "1.0.0-pr-74.452",
     "@swc/cli": "^0.1.62",
