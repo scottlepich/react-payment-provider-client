@@ -76,4 +76,10 @@ export type State = {
   threeDsEvents: ThreeDSEvent[];
 };
 
+export enum ActionTypes {
+  RESET = "reset",
+}
+
+export type Actions = { type: ActionTypes.RESET };
+
 export {};
