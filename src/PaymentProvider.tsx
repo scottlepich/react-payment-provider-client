@@ -2,8 +2,8 @@ import { useReducer, Reducer, ReactNode } from "react";
 
 import { State, Actions } from "./types/spreedly";
 
-import reducer from "./spreedly/reducer";
-import initialState from "./spreedly/initialState";
+import reducer from "./reducer";
+import initialState from "./initialState";
 
 import PaymentContext from "./PaymentContext";
 

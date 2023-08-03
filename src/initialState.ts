@@ -1,4 +1,4 @@
-import { State } from "../types/spreedly";
+import { State } from "./types/index.d";
 
 const initialState: State = {
   loading: true,

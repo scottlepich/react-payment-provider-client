@@ -4,9 +4,9 @@ import { useEffect, useRef, useReducer, Reducer } from "react";
 
 import useScript from "react-script-hook";
 
-import initialState from "./initialState";
+import initialState from "../initialState";
 
-import reducer from "./reducer";
+import reducer from "../reducer";
 
 import {
   UseSpreedlyReturnType,

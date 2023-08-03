@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 
-import { State, Actions, ActionTypes } from "../types/spreedly";
+import { State, Actions, ActionTypes } from "./types/index.d";
 
 import initialState from "./initialState";
 
