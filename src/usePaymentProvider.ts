@@ -2,11 +2,6 @@ import { createSingletonHook } from "./singletonHook";
 
 import useSpreedly from "./spreedly/useSpreedly";
 
-export enum PaymentProviderNames {
-  Spreedly = "spreedly",
-  // TODO: Stripe: "stripe",
-}
-
 interface UsePaymentProvider {
   name: PaymentProviderNames;
 }
