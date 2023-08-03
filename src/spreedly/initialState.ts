@@ -1,4 +1,4 @@
-import { State } from "~types/spreedly";
+import { State } from "../types/spreedly";
 
 const initialState: State = {
   loading: true,

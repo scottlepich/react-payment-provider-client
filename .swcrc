@@ -8,17 +8,14 @@
       "syntax": "typescript",
       "tsx": true
     },
+    "baseUrl": "./src",
     "paths": {
-      "~spreedly/*": ["./src/spreedly/*"],
-      "~types/*": ["./types/*"]
+      "~spreedly/*": ["spreedly/*"],
+      "~types/*": ["types/*"]
     }
   },
   "module": {
-    "type": "commonjs",
-    "strict": true,
-    "strictMode": true,
-    "lazy": false,
-    "noInterop": false
+    "type": "commonjs"
   },
-  "exclude": [".*.test.tsx?$", "types/*"]
+  "exclude": [".*.test.tsx?$"]
 }

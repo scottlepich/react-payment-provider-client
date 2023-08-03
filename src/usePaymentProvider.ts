@@ -1,6 +1,6 @@
 import { createSingletonHook } from "./singletonHook";
 
-import useSpreedly from "~spreedly/useSpreedly";
+import useSpreedly from "./spreedly/useSpreedly";
 
 export enum PaymentProviderNames {
   Spreedly = "spreedly",

@@ -15,7 +15,7 @@ import {
   Actions,
   ActionTypes,
   CreditCardData,
-} from "~types/spreedly";
+} from "../types/spreedly";
 
 import {
   CHALLENGE_IFRAME,
@@ -25,11 +25,9 @@ import {
   SPREEDLY_NUMBER_FIELD,
   SPREEDLY_SCRIPT_URL,
   SpreedlyEvents,
-} from "~spreedly/constants";
+} from "./constants";
 
 const environmentKey = process.env.SPREEDLY_DEMO || "";
-
-const { Spreedly } = window;
 
 const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } = SpreedlyEvents;
 
@@ -42,7 +40,14 @@ const {
   SET_SRC_LOADED,
 } = ActionTypes;
 
-export const useSpreedly = (): UseSpreedlyReturnType => {
+export const useSpreedly = (): UseSpreedlyReturnType | undefined => {
+  // TODO: figure out isomorphic app
+  if (!window) {
+    return;
+  }
+
+  const { Spreedly } = window;
+
   const [state, dispatch] = useReducer<Reducer<State, Actions>>(
     reducer,
     initialState,

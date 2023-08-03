@@ -5,7 +5,7 @@
   "description": "React payment provider components for OpenTable",
   "author": "slepich@opentable.com",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "pnpm run clean && pnpm run build:tsc",
