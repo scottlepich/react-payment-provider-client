@@ -8,12 +8,11 @@ import initialState from "../initialState";
 
 import reducer from "../reducer";
 
+import { State, Actions, ActionTypes } from "../types/index.d";
+
 import {
   UseSpreedlyReturnType,
   SpreedlyPaymentMethod,
-  State,
-  Actions,
-  ActionTypes,
   CreditCardData,
 } from "../types/spreedly";
 
