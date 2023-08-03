@@ -1,6 +1,6 @@
 import { createContext, Dispatch } from "react";
 
-import { State, Actions } from "./types/spreedly";
+import { State, Actions } from "./types/index.d";
 
 export interface ContextShape {
   state: State;
