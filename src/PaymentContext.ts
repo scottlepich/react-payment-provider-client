@@ -1,4 +1,4 @@
-import { createContext, Dispatch, useContext } from "react";
+import { createContext, Dispatch } from "react";
 
 import { State, Actions } from "./types/index.d";
 
