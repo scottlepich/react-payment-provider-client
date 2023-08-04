@@ -10,44 +10,49 @@ import { ActionTypes } from "./types/index.d";
 
 // TODO: Stripe
 
+const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
+
 const usePayment = (paymentType: PaymentType) => {
   const context = useContext(PaymentContext);
 
-  const dispatch = useDispatch();
-
   const { src, hasWindowModule } = useProvider(paymentType);
 
-  // Attach provider script.
+  // Attach provider script
   const [scriptLoading] = useScript({
-    src, // TODO: use paymentType for src
+    src,
     checkForExisting: true, // prevent multiple script injection
   });
 
-  useEffect(() => {
-    // TODO: error if no context
-    // if (context === undefined) {
-    //   throw new Error(
-    //     "usePayment hook must be used within a PaymentProvider context.",
-    //   );
-    // }
-  }, []);
-
   // Set loaded, init, attach lifecycle
   useEffect(() => {
-    if (hasWindowModule) {
-      // TODO: undefined disptach?
+    if (context && hasWindowModule) {
+      const { dispatch } = context;
       dispatch({
-        type: ActionTypes.SET_SRC_LOADED,
+        type: SET_SRC_LOADED,
       });
       // TODO: initialize provider
       // TODO: attach lifecycle
     }
-  }, [scriptLoading]);
+  }, [scriptLoading, context]);
 
   // end hooks
-  // TODO: attach callbacks
 
-  return context;
+  // must be after hooks:
+  if (context === undefined) {
+    throw new Error(
+      "usePayment hook must be used within a PaymentProvider context.",
+    );
+  }
+
+  // TODO: attach callbacks with dispatch
+  const clearErrors = (dispatch: any) => {
+    dispatch({
+      type: SET_ERRORS,
+      error: undefined,
+    });
+  };
+
+  return { ...context, clearErrors };
 };
 
 export default usePayment;
