@@ -3,8 +3,7 @@ const Spreedly = window?.Spreedly || {};
 
 import { ActionTypes } from "../types/index.d";
 
-const { SET_3DS_EVENTS, SET_CREDIT_CARD, SET_ERRORS, SET_INPUTS, SET_READY } =
-  ActionTypes;
+import { CreditCardData } from "../types/spreedly";
 
 import {
   CHALLENGE_IFRAME,
@@ -15,14 +14,12 @@ import {
   SpreedlyEvents,
 } from "./constants";
 
-import {
-  UseSpreedlyReturnType,
-  SpreedlyPaymentMethod,
-  CreditCardData,
-} from "../types/spreedly";
+const { SET_3DS_EVENTS, SET_CREDIT_CARD, SET_ERRORS, SET_INPUTS, SET_READY } =
+  ActionTypes;
 
 const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } = SpreedlyEvents;
 
+// TODO:
 const environmentKey = process.env.SPREEDLY_DEMO || "";
 
 export const initializeSpreedly = () => {

@@ -15,7 +15,9 @@ const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 const usePayment = (paymentType: PaymentType) => {
   const context = useContext(PaymentContext);
 
-  const { src, hasWindowModule } = useProvider(paymentType);
+  // Get provider specific config
+  const { src, hasWindowModule, initialize, attachEvents } =
+    useProvider(paymentType);
 
   // Attach provider script
   const [scriptLoading] = useScript({
@@ -23,19 +25,17 @@ const usePayment = (paymentType: PaymentType) => {
     checkForExisting: true, // prevent multiple script injection
   });
 
-  // Set loaded, init, attach lifecycle
+  // Init provider
   useEffect(() => {
     if (context && hasWindowModule) {
       const { dispatch } = context;
       dispatch({
         type: SET_SRC_LOADED,
       });
-      // TODO: initialize provider
-      // TODO: attach lifecycle
+      initialize();
+      attachEvents(context);
     }
   }, [scriptLoading, context]);
-
-  // end hooks
 
   // must be after hooks:
   if (context === undefined) {
@@ -44,7 +44,8 @@ const usePayment = (paymentType: PaymentType) => {
     );
   }
 
-  // TODO: attach callbacks with dispatch
+  // TODO: callbacks?
+  // TODO: dispatch?
   const clearErrors = (dispatch: any) => {
     dispatch({
       type: SET_ERRORS,
