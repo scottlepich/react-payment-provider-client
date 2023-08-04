@@ -11,7 +11,7 @@ type Props = {
   children: ReactNode;
 };
 
-const PaymentProvider = ({ children }: Props) => {
+const PaymentContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer<Reducer<State, Actions>>(
     reducer,
     initialState,
@@ -25,4 +25,4 @@ const PaymentProvider = ({ children }: Props) => {
   );
 };
 
-export default PaymentProvider;
+export default PaymentContextProvider;
