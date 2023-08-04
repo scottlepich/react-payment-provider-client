@@ -2,10 +2,10 @@
   "name": "@opentable/react-payment-provider-client",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "description": "React payment provider components for OpenTable",
+  "description": "React payment vendor components for OpenTable",
   "author": "slepich@opentable.com",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "pnpm run clean && pnpm run build:tsc",

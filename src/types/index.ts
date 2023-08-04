@@ -1,2 +1,2 @@
-export type * from "./context";
-export type * from "./spreedly";
+export * from "./context";
+export * from "./spreedly";

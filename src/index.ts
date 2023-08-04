@@ -1,5 +1,14 @@
-export * from "./context/PaymentContextProvider";
+import * as Types from "./types";
 
-export * from "./usePayment";
+import PaymentContextProvider from "./context/PaymentContextProvider";
 
-export * from "./iframeNodes";
+import usePayment from "./usePayment";
+
+import * as iframeNodes from "./iframeNodes";
+
+export default {
+  PaymentContextProvider,
+  usePayment,
+  ...iframeNodes,
+  ...Types,
+};
