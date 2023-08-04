@@ -22,3 +22,6 @@ const PaymentProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default PaymentProvider;
+
+// TODO: export this dispatch?
+// export const useDispatch = () => useContext(PaymentContext)?.dispatch;
