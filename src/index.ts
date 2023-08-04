@@ -1,4 +1,4 @@
-import * as Types from "./types";
+// TODO: import * as Types from "./types"; // Types don't work
 
 import PaymentContextProvider from "./context/PaymentContextProvider";
 
@@ -10,5 +10,4 @@ export default {
   PaymentContextProvider,
   usePayment,
   ...iframeNodes,
-  ...Types,
 };
