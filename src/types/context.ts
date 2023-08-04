@@ -1,9 +1,5 @@
 import { CreditCard, InputField, ThreeDSEvent } from "./spreedly";
 
-export type * from "./window";
-
-export type * from "./spreedly";
-
 // State management
 export type State = {
   card: CreditCard;

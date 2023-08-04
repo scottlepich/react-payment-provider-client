@@ -8,7 +8,7 @@ import initialState from "../context/initialState";
 
 import reducer from "../context/reducer";
 
-import { State, Actions, ActionTypes } from "../types/index.d";
+import { State, Actions, ActionTypes } from "../types";
 
 import {
   UseSpreedlyReturnType,

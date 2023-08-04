@@ -8,7 +8,7 @@ import {
   CreditCardData,
   InputField,
   ThreeDSEvent,
-} from "../types/index.d";
+} from "../types";
 
 const {
   SET_3DS_EVENTS,

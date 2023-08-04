@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import useScript from "react-script-hook";
 
 import { PaymentType } from "./constants";
-import { ActionTypes } from "./types/index.d";
+import { ActionTypes } from "./types";
 
 import useProvider from "./useProvider";
 import usePaymentContext from "./context/usePaymentContext";
