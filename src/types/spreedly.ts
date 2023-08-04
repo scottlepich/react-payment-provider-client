@@ -1,3 +1,10 @@
+// Spreedly Window definition
+declare global {
+  interface Window {
+    Spreedly: any;
+  }
+}
+
 // useSpreedly Return Type
 export type UseSpreedlyReturnType = {
   loading: boolean;
