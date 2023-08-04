@@ -2,8 +2,7 @@ import { useEffect } from "react";
 
 import useScript from "react-script-hook";
 
-import { PaymentType } from "./constants";
-import { ActionTypes } from "./types";
+import { ActionTypes, PaymentType } from "./constants";
 
 import useProvider from "./useProvider";
 import usePaymentContext from "./context/usePaymentContext";

@@ -3,12 +3,13 @@ import initialState from "./initialState";
 
 import {
   Actions,
-  ActionTypes,
   CreditCard,
   CreditCardData,
   InputField,
   ThreeDSEvent,
 } from "../types";
+
+import { ActionTypes } from "../constants";
 
 const {
   SET_3DS_EVENTS,

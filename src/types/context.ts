@@ -1,5 +1,7 @@
 import { CreditCard, InputField, ThreeDSEvent } from "./spreedly";
 
+import { ActionTypes } from "../constants";
+
 // State management
 export type State = {
   card: CreditCard;
@@ -9,16 +11,6 @@ export type State = {
   hasLoadedScript: boolean;
   threeDsEvents: ThreeDSEvent[];
 };
-
-export enum ActionTypes {
-  CLEAR = "clear",
-  SET_3DS_EVENTS = "set_3ds_events",
-  SET_CREDIT_CARD = "set_credit_card",
-  SET_ERRORS = "set_errors",
-  SET_INPUTS = "set_inputs",
-  SET_READY = "set_ready",
-  SET_SRC_LOADED = "set_src_loaded",
-}
 
 export type Actions =
   | { type: ActionTypes.CLEAR }
