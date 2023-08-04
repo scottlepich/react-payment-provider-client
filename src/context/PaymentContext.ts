@@ -1,6 +1,6 @@
 import { createContext, Dispatch } from "react";
 
-import { State, Actions } from "./types/index.d";
+import { State, Actions } from "../types";
 
 export interface ContextShape {
   state: State;

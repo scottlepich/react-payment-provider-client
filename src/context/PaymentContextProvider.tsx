@@ -1,9 +1,9 @@
 import { useReducer, Reducer, ReactNode } from "react";
 
-import { State, Actions } from "./types/index.d";
+import { State, Actions } from "../types";
 
-import reducer from "./reducer";
-import initialState from "./initialState";
+import reducer from "../reducer";
+import initialState from "../initialState";
 
 import PaymentContext from "./PaymentContext";
 

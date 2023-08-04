@@ -6,7 +6,7 @@ import { PaymentType } from "./constants";
 import { ActionTypes } from "./types/index.d";
 
 import useProvider from "./useProvider";
-import usePaymentContext from "./usePaymentContext";
+import usePaymentContext from "./context/usePaymentContext";
 
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 
