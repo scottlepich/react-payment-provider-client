@@ -1,7 +1,7 @@
 // TODO: figure out isomorphic app
 const Spreedly = window?.Spreedly || {};
 
-import { ActionTypes } from "../types/index.d";
+import { ActionTypes } from "../types";
 
 import { CreditCardData } from "../types/spreedly";
 

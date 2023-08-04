@@ -3,7 +3,7 @@ import { PaymentType } from "./constants";
 import { SPREEDLY_SCRIPT_URL } from "./spreedly/constants";
 // TODO: import { STRIPE_SCRIPT_URL } from "./stripe/constants";
 
-import * as spreedly from "./spreedly/spreedly";
+import * as spreedly from "./spreedly/client";
 
 const useProvider = (paymentType: PaymentType) => {
   switch (paymentType) {
