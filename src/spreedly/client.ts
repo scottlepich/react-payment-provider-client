@@ -1,6 +1,3 @@
-// TODO: figure out isomorphic app
-const Spreedly = window?.Spreedly || {};
-
 import {
   CARD_NUMBER_FIELD_ID,
   CVV_FIELD_ID,
@@ -19,8 +16,11 @@ const { SET_3DS_EVENTS, SET_CREDIT_CARD, SET_ERRORS, SET_INPUTS, SET_READY } =
 
 const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } = SpreedlyEvents;
 
-// TODO:
+// TODO: figure out where to store env keys
 const environmentKey = process.env.SPREEDLY_DEMO || "";
+
+// TODO: figure out isomorphic app
+const Spreedly = typeof window !== "undefined" ? window?.Spreedly || {} : {};
 
 export const initializeSpreedly = () => {
   if (Spreedly) {
