@@ -1,4 +1,4 @@
-import { State } from "../types";
+import { State } from "../types/index.d";
 
 const initialState: State = {
   loading: true,
@@ -9,7 +9,7 @@ const initialState: State = {
   },
   inputs: [],
   threeDsEvents: [],
-  scriptIsLoaded: false,
+  hasLoadedScript: false,
 };
 
 export default initialState;

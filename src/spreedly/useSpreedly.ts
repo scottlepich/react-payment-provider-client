@@ -151,7 +151,7 @@ export const useSpreedly = (): UseSpreedlyReturnType | undefined => {
     inputs: state.inputs,
     threeDSEvents: state.threeDsEvents,
     cardData: state.card.data as SpreedlyPaymentMethod,
-    spreedlyIsLoaded: state.scriptIsLoaded,
+    spreedlyIsLoaded: state.hasLoadedScript,
     tokenizeCard,
     startThreeDS,
     initializeSpreedly,

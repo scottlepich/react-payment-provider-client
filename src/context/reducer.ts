@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 
-import { State, Actions, ActionTypes } from "../types";
+import { State, Actions, ActionTypes } from "../types/index.d";
 
 import initialState from "./initialState";
 
@@ -9,7 +9,7 @@ const reducer: Reducer<State, Actions> = (state: State, action: Actions) => {
     case ActionTypes.SET_SRC_LOADED:
       return {
         ...state,
-        spreedlyIsLoaded: true,
+        hasLoadedScript: true,
       };
     case ActionTypes.SET_READY:
       return {
@@ -39,7 +39,7 @@ const reducer: Reducer<State, Actions> = (state: State, action: Actions) => {
     case ActionTypes.CLEAR:
       return initialState;
     default:
-      return state;
+      throw new Error("Invalid action type.");
   }
 };
 

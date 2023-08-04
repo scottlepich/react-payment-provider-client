@@ -10,7 +10,7 @@ export type State = {
   error: Error | undefined;
   inputs: InputField[];
   loading: boolean;
-  scriptIsLoaded: boolean;
+  hasLoadedScript: boolean;
   threeDsEvents: ThreeDSEvent[];
 };
 
