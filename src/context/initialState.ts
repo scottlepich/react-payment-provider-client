@@ -1,4 +1,4 @@
-import { State } from "./types/index.d";
+import { State } from "../types";
 
 const initialState: State = {
   loading: true,

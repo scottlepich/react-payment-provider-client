@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 
-import { State, Actions, ActionTypes } from "./types/index.d";
+import { State, Actions, ActionTypes } from "../types";
 
 import initialState from "./initialState";
 
