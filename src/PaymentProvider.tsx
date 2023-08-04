@@ -7,7 +7,11 @@ import initialState from "./initialState";
 
 import PaymentContext from "./PaymentContext";
 
-const PaymentProvider = ({ children }: { children: ReactNode }) => {
+type Props = {
+  children: ReactNode;
+};
+
+const PaymentProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer<Reducer<State, Actions>>(
     reducer,
     initialState,
@@ -22,6 +26,3 @@ const PaymentProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default PaymentProvider;
-
-// TODO: export this dispatch?
-// export const useDispatch = () => useContext(PaymentContext)?.dispatch;
