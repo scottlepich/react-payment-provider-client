@@ -11,19 +11,20 @@ import usePaymentContext from "./usePaymentContext";
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 
 const usePayment = (paymentType: PaymentType) => {
+  // Load up our context
   const { state, dispatch } = usePaymentContext();
 
   // Get payment provider specific config
   const { src, hasWindowModule, initialize, attachEvents } =
     useProvider(paymentType);
 
-  // Attach provider script
+  // Attach payment provider script
   const [scriptLoading] = useScript({
     src,
     checkForExisting: true, // prevent multiple script injection
   });
 
-  // Init payment provider
+  // Initialize payment provider
   useEffect(() => {
     if (hasWindowModule) {
       dispatch({
@@ -34,9 +35,9 @@ const usePayment = (paymentType: PaymentType) => {
     }
   }, [scriptLoading, dispatch]);
 
-  // TODO:  callbacks
-  // TODO: dispatch?
-  const clearErrors = (dispatch: any) => {
+  // TODO: additional callbacks?
+  // What do the forms need?
+  const clearErrors = () => {
     dispatch({
       type: SET_ERRORS,
       error: undefined,
