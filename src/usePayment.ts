@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 
 import useScript from "react-script-hook";
-import PaymentContext, { useDispatch } from "./PaymentContext";
+import PaymentContext from "./PaymentContext";
 
 import useProvider from "./useProvider";
 
@@ -15,7 +15,7 @@ const usePayment = (paymentType: PaymentType) => {
 
   const dispatch = useDispatch();
 
-  const { src } = useProvider(paymentType);
+  const { src, hasWindowModule } = useProvider(paymentType);
 
   // Attach provider script.
   const [scriptLoading] = useScript({
@@ -24,29 +24,28 @@ const usePayment = (paymentType: PaymentType) => {
   });
 
   useEffect(() => {
-    if (context === undefined) {
-      throw new Error(
-        "usePayment hook must be used within a PaymentProvider context.",
-      );
-    }
+    // TODO: error if no context
+    // if (context === undefined) {
+    //   throw new Error(
+    //     "usePayment hook must be used within a PaymentProvider context.",
+    //   );
+    // }
   }, []);
 
   // Set loaded, init, attach lifecycle
   useEffect(() => {
-    // TODO: figure out isomorphic app
-    // other script locations
-    if (window?.Spreedly) {
+    if (hasWindowModule) {
       // TODO: undefined disptach?
       dispatch({
         type: ActionTypes.SET_SRC_LOADED,
       });
-      // TODO:
-      // initialize provider
-      // attach lifecycle listeners
+      // TODO: initialize provider
+      // TODO: attach lifecycle
     }
   }, [scriptLoading]);
 
   // end hooks
+  // TODO: attach callbacks
 
   return context;
 };
