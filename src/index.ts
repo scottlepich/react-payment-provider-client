@@ -1,13 +1,20 @@
-// TODO: import * as Types from "./types"; // Types don't work
+import * as Types from "./types";
 
 import PaymentContextProvider from "./context/PaymentContextProvider";
+import reducer from "./context/reducer";
 
 import usePayment from "./usePayment";
 
-import * as iframeNodes from "./iframeNodes";
+import { PaymentType } from "./constants";
 
-export default {
-  PaymentContextProvider,
+import { CVVField, CardNumberField } from "./iframeNodes";
+
+export {
   usePayment,
-  ...iframeNodes,
+  PaymentType,
+  CardNumberField,
+  CVVField,
+  Types,
+  PaymentContextProvider,
+  reducer,
 };
