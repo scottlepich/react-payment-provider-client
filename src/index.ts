@@ -1,6 +1,5 @@
-import * as Types from "./types";
-
 import PaymentContextProvider from "./context/PaymentContextProvider";
+
 import reducer from "./context/reducer";
 
 import usePayment from "./usePayment";
@@ -14,7 +13,6 @@ export {
   PaymentType,
   CardNumberField,
   CVVField,
-  Types,
   PaymentContextProvider,
   reducer,
 };

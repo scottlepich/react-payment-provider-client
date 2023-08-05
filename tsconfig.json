@@ -4,10 +4,8 @@
     "jsx": "react-jsx",
     "lib": ["DOM", "ES2022"],
     "rootDir": "src",
-    "outDir": "dist",
-    "declaration": true,
-    "sourceMap": false
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["src/**.test.ts", "node_modules"]
+  "exclude": ["src/**.test.ts", "node_modules/**", "dist/**"]
 }
