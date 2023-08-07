@@ -10,8 +10,7 @@
     "test": "tsc --noEmit && jest",
     "build": "pnpm run clean && pnpm run build:esbuild",
     "build:tsc": "tsc",
-    "build:swc": "swc ./src -d ./dist",
-    "build:esbuild": "pnpm run clean && node scripts/build.js",
+    "build:esbuild": "node scripts/build.js",
     "clean": "rm -fr ./dist"
   },
   "keywords": [
