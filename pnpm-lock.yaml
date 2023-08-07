@@ -10,9 +10,6 @@ dependencies:
     version: 16.3.1
 
 devDependencies:
-  '@opentable/webstack-tsconfig':
-    specifier: 1.0.0-pr-74.452
-    version: 1.0.0-pr-74.452
   '@swc/core':
     specifier: ^1.3.71
     version: 1.3.71
@@ -849,10 +846,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
-  /@opentable/webstack-tsconfig@1.0.0-pr-74.452:
-    resolution: {integrity: sha1-ckFc5y+2JHFhb3y0lBPmkorNoVw=, tarball: http://artifactory.otenv.com/artifactory/api/npm/npm-virtual/@opentable/webstack-tsconfig/-/@opentable/webstack-tsconfig-1.0.0-pr-74.452.tgz}
     dev: true
 
   /@sinclair/typebox@0.27.8:
@@ -2373,7 +2366,7 @@ packages:
     dev: true
 
   /loose-envify@1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==, tarball: http://artifactory.otenv.com:80/artifactory/api/npm/npm-virtual/loose-envify/-/loose-envify-1.4.0.tgz}
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
@@ -2612,7 +2605,7 @@ packages:
     dev: true
 
   /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==, tarball: http://artifactory.otenv.com:80/artifactory/api/npm/npm-virtual/react-dom/-/react-dom-18.2.0.tgz}
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
@@ -2640,7 +2633,7 @@ packages:
     dev: true
 
   /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==, tarball: http://artifactory.otenv.com:80/artifactory/api/npm/npm-virtual/react/-/react-18.2.0.tgz}
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -2691,7 +2684,7 @@ packages:
     dev: true
 
   /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==, tarball: http://artifactory.otenv.com:80/artifactory/api/npm/npm-virtual/scheduler/-/scheduler-0.23.0.tgz}
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
     dev: true

@@ -7,11 +7,10 @@
   "main": "dist/index.js",
   "types": "src/index.d.ts",
   "scripts": {
-    "test": "tsc --noEmit && jest",
     "build": "pnpm run clean && pnpm run build:esbuild",
-    "build:tsc": "tsc",
     "build:esbuild": "node scripts/build.js",
-    "clean": "rm -fr ./dist"
+    "clean": "rm -fr ./dist",
+    "test": "tsc --noEmit && jest"
   },
   "keywords": [
     "Payment Provider",
@@ -22,7 +21,6 @@
     "pnpm": ">=8.6.11"
   },
   "devDependencies": {
-    "@opentable/webstack-tsconfig": "1.0.0-pr-74.452",
     "@swc/core": "^1.3.71",
     "@swc/jest": "^0.2.27",
     "@testing-library/react": "^14.0.0",
