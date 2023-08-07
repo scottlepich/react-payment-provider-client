@@ -9,7 +9,9 @@ const useProvider = (paymentType: PaymentType) => {
   switch (paymentType) {
     case PaymentType.Spreedly:
       return {
-        hasWindowModule: typeof window?.Spreedly !== "undefined",
+        hasWindowModule:
+          typeof window !== "undefined" &&
+          typeof window.Spreedly !== "undefined", // false, //typeof window?.Spreedly !== "undefined",
         initialize: spreedly.initializeSpreedly,
         attachEvents: spreedly.attachEvents,
         src: SPREEDLY_SCRIPT_URL,
