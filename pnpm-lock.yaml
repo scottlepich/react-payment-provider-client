@@ -44,11 +44,11 @@ devDependencies:
     specifier: ^29.6.2
     version: artifactory.otenv.com/jest@29.6.2(@types/node@20.4.5)(ts-node@10.9.1)
   react:
-    specifier: ^18.2.0
-    version: artifactory.otenv.com/react@18.2.0
+    specifier: 18.2.0
+    version: link:../consumer-frontend/node_modules/react
   react-dom:
-    specifier: ^18.2.0
-    version: artifactory.otenv.com/react-dom@18.2.0(react@18.2.0)
+    specifier: 18.2.0
+    version: link:../consumer-frontend/node_modules/react-dom
   react-script-hook:
     specifier: ^1.7.2
     version: artifactory.otenv.com/react-script-hook@1.7.2(react-dom@18.2.0)(react@18.2.0)

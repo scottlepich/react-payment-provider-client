@@ -4,7 +4,8 @@ const { dependencies, peerDependencies } = require("../package.json");
 const sharedConfig = {
   entryPoints: ["src/index.ts"],
   bundle: true,
-  minify: true,
+  minify: false,
+  sourcemap: true,
   external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
 };
 
