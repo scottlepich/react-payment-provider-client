@@ -32,43 +32,45 @@ export const initializeSpreedly = () => {
 };
 
 export const attachEvents = ({ state, dispatch }: any) => {
-  Spreedly.on(READY, () => {
-    dispatch({
-      type: SET_READY,
+  if (Spreedly) {
+    Spreedly.on(READY, () => {
+      dispatch({
+        type: SET_READY,
+      });
     });
-  });
 
-  Spreedly.on(ERRORS, (error: Error) => {
-    dispatch({
-      type: SET_ERRORS,
-      error,
+    Spreedly.on(ERRORS, (error: Error) => {
+      dispatch({
+        type: SET_ERRORS,
+        error,
+      });
     });
-  });
 
-  Spreedly.on(PAYMENT_METHOD, (token: string, data: CreditCardData) => {
-    dispatch({
-      type: SET_CREDIT_CARD,
-      card: {
-        token,
-        data,
-      },
+    Spreedly.on(PAYMENT_METHOD, (token: string, data: CreditCardData) => {
+      dispatch({
+        type: SET_CREDIT_CARD,
+        card: {
+          token,
+          data,
+        },
+      });
     });
-  });
 
-  Spreedly.on(INPUT, (name: string, value: string) => {
-    dispatch({
-      type: SET_INPUTS,
-      inputs: [...state.inputs, { name, value }],
+    Spreedly.on(INPUT, (name: string, value: string) => {
+      dispatch({
+        type: SET_INPUTS,
+        inputs: [...state.inputs, { name, value }],
+      });
     });
-  });
 
-  // TODO: 3ds status data type
-  Spreedly.on(THREEDS_STATUS, (data: any) => {
-    dispatch({
-      type: SET_3DS_EVENTS,
-      threeDsEvents: [{ name: data.event, data }, ...state.threeDsEvents],
+    // TODO: 3ds status data type
+    Spreedly.on(THREEDS_STATUS, (data: any) => {
+      dispatch({
+        type: SET_3DS_EVENTS,
+        threeDsEvents: [{ name: data.event, data }, ...state.threeDsEvents],
+      });
     });
-  });
+  }
 };
 
 export const tokenizeCard = (creditCard: any) => {
