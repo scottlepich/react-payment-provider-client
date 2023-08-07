@@ -1,5 +1,7 @@
 import { createContext, Dispatch } from "react";
 
+import initialState from "./initialState";
+
 import { State, Actions } from "../types";
 
 export interface ContextShape {
@@ -7,6 +9,9 @@ export interface ContextShape {
   dispatch: Dispatch<Actions>;
 }
 
-const PaymentContext = createContext<ContextShape | undefined>(undefined);
+const PaymentContext = createContext<ContextShape>({
+  state: initialState,
+  dispatch: () => undefined,
+});
 
 export default PaymentContext;
