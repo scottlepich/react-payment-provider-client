@@ -2612,7 +2612,7 @@ packages:
     dev: true
 
   /react-script-hook@1.7.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-fhyCEfXb94fag34UPRF0zry1XGwmVY+79iibWwTqAoOiCzYJQOYTiWJ7CnqglA9tMSV8g45cQpHCMcBwr7dwhA==}
+    resolution: {integrity: sha512-fhyCEfXb94fag34UPRF0zry1XGwmVY+79iibWwTqAoOiCzYJQOYTiWJ7CnqglA9tMSV8g45cQpHCMcBwr7dwhA==, tarball: http://artifactory.otenv.com:80/artifactory/api/npm/npm-virtual/react-script-hook/-/react-script-hook-1.7.2.tgz}
     peerDependencies:
       react: ^16.8.6 || 17 - 18
       react-dom: ^16.8.6 || 17 - 18
