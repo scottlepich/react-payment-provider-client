@@ -4,4 +4,12 @@ import usePayment from "./usePayment";
 
 import { PaymentType } from "./constants";
 
-export { usePayment, PaymentContextProvider, PaymentType };
+import { CVVField, CardNumberField } from "./iframeNodes";
+
+export {
+  CVVField,
+  CardNumberField,
+  PaymentContextProvider,
+  PaymentType,
+  usePayment,
+};
