@@ -54,9 +54,9 @@ TODO:
 - Use in other OT react sites
 
 #### Documentation
-[Spreedly iframe payment guide](https://docs.spreedly.com/guides/adding-payment-methods/iframe/)
-[Spreedly iframe JS API](https://docs.spreedly.com/reference/iframe/v1/#iframe-javascript-api)
-[Spreedly iframe 3DS journey diagram](https://docs.spreedly.com/guides/spreedly-3dsecure2-web/#end-to-end-flow-diagram)
+- [Spreedly iframe payment guide](https://docs.spreedly.com/guides/adding-payment-methods/iframe/)
+- [Spreedly iframe JS API](https://docs.spreedly.com/reference/iframe/v1/#iframe-javascript-api)
+- [Spreedly iframe 3DS journey diagram](https://docs.spreedly.com/guides/spreedly-3dsecure2-web/#end-to-end-flow-diagram)
 
 
 ### Stripe
