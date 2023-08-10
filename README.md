@@ -4,7 +4,7 @@
 ## React abstraction for payment provider strategies
 
 - Meant to abstract provider implementation details away from OT react sites
-- Creates a Payment Provider hook and context for use in OT React sites 
+- Creates a Payment Provider hook and context for use in OT React sites
 - (TODO) Contains clients for OT payment providers
 
 ## Rationale and history
