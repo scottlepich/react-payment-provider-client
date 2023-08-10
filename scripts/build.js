@@ -3,11 +3,11 @@ const { build } = require("esbuild");
 const { peerDependencies } = require("../package.json");
 
 build({
-  entryPoints: ["src/index.ts"],
   bundle: true,
-  minify: false,
-  sourcemap: true,
+  entryPoints: ["src/index.ts"],
   external: Object.keys(peerDependencies || {}),
-  platform: "node",
+  minify: false,
   outfile: "dist/index.js",
+  platform: "node",
+  sourcemap: true,
 });
