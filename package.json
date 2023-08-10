@@ -1,5 +1,5 @@
 {
-  "name": "@opentable/react-payment-provider-client",
+  "name": "@opentable/react-payment",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "description": "OpenTable React components for payment vendors",

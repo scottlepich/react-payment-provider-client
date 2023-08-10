@@ -1,4 +1,4 @@
-declare module "@opentable/react-payment-provider-client";
+declare module "@opentable/react-payment";
 
 import PaymentContextProvider from "./context/PaymentContextProvider";
 import reducer from "./context/reducer";
