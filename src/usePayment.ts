@@ -5,6 +5,7 @@ import useScript from "react-script-hook";
 import { ActionTypes, PaymentType } from "./constants";
 
 import useProvider from "./useProvider";
+
 import usePaymentContext from "./context/usePaymentContext";
 
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
@@ -12,24 +13,21 @@ const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 const useHasWindowGlobal = () => typeof window !== "undefined";
 
 const usePayment = (paymentType: PaymentType) => {
-  const hasWindowGlobal = useHasWindowGlobal(); // check for window
+  const hasWindowGlobal = useHasWindowGlobal();
 
   useEffect(() => {
     if (!hasWindowGlobal) {
-      return;
+      return; // Must be in a browser
     }
   }, [hasWindowGlobal]);
 
-  // Init context
-  const {
-    state: { hasLoadedScript, ...state },
-    dispatch,
-  } = usePaymentContext();
+  // Initialize context
+  const { state, dispatch } = usePaymentContext();
 
   // Payment provider config
   const { src, initialize, attachEvents } = useProvider(paymentType);
 
-  // Attach payment provider script
+  // Attach payment provider <script />
   useScript({
     src,
     checkForExisting: true, // prevent multiple script injection
@@ -42,14 +40,12 @@ const usePayment = (paymentType: PaymentType) => {
 
   // Initialize payment provider
   useEffect(() => {
-    if (hasLoadedScript && hasWindowGlobal) {
+    if (state.hasLoadedScript && hasWindowGlobal) {
       initialize();
-      attachEvents(dispatch);
+      attachEvents({ state, dispatch });
     }
-  }, [hasLoadedScript]);
+  }, [state.hasLoadedScript]);
 
-  // Todo: additional callbacks?
-  // What do the forms need?
   const clearErrors = () => {
     dispatch({
       type: SET_ERRORS,
@@ -57,6 +53,7 @@ const usePayment = (paymentType: PaymentType) => {
     });
   };
 
+  // Provide state and callback(s)
   return { state, clearErrors };
 };
 
