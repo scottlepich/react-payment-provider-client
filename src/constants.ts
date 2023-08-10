@@ -19,3 +19,8 @@ export const CARD_NUMBER_FIELD_ID = "credit-card-number-field";
 export const CVV_FIELD_ID = "cvv-field";
 export const CHALLENGE_IFRAME_ID = "challenge-iframe";
 export const CHALLENGE_IFRAME_CLASS = "TODO";
+
+// App keys
+// TODO: figure out where to store keys
+export const SPREEDLY_DEMO = "8b01Y9b9sSRkMsbw14aOya8YmQj";
+export const SPREEDLY_PROD = "ESu0lNbQpD1i6WGmJHFJIrub5sP";

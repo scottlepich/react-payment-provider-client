@@ -5,6 +5,7 @@ import {
   CHALLENGE_IFRAME_CLASS,
   HIDDEN_IFRAME_ID,
   ActionTypes,
+  SPREEDLY_DEMO,
 } from "../constants";
 
 import { CreditCardData } from "../types/spreedly";
@@ -18,8 +19,6 @@ const { SET_3DS_EVENTS, SET_CREDIT_CARD, SET_ERRORS, SET_INPUTS, SET_READY } =
 
 const { READY, ERRORS, PAYMENT_METHOD, INPUT, THREEDS_STATUS } = SpreedlyEvents;
 
-// TODO: figure out where to store env keys
-const SPREEDLY_DEMO = "8b01Y9b9sSRkMsbw14aOya8YmQj";
 const environmentKey = SPREEDLY_DEMO;
 
 export const initializeSpreedly = () => {
