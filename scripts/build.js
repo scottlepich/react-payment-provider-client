@@ -1,14 +1,18 @@
 const { build } = require("esbuild");
+
 const { dependencies, peerDependencies } = require("../package.json");
+
+const external = [
+  //   ...Object.keys(dependencies || {}),
+  ...Object.keys(peerDependencies || {}),
+];
 
 const sharedConfig = {
   entryPoints: ["src/index.ts"],
   bundle: true,
-  minify: false,
+  minify: true,
   sourcemap: true,
-  external: Object.keys(dependencies || {}).concat(
-    Object.keys(peerDependencies || {}),
-  ),
+  external,
 };
 
 build({
