@@ -9,12 +9,10 @@ import usePaymentContext from "./context/usePaymentContext";
 
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 
-// TODO: figure out isomorphic app
 const useHasWindowGlobal = () => typeof window !== "undefined";
 
 const usePayment = (paymentType: PaymentType) => {
-  // check for window
-  const hasWindowGlobal = useHasWindowGlobal();
+  const hasWindowGlobal = useHasWindowGlobal(); // check for window
 
   useEffect(() => {
     if (!hasWindowGlobal) {
@@ -22,28 +20,33 @@ const usePayment = (paymentType: PaymentType) => {
     }
   }, [hasWindowGlobal]);
 
-  // Load up our context
-  const { state, dispatch } = usePaymentContext();
+  // Init context
+  const {
+    state: { hasLoadedScript, ...state },
+    dispatch,
+  } = usePaymentContext();
 
-  // Get payment provider specific config
+  // Payment provider config
   const { src, initialize, attachEvents } = useProvider(paymentType);
 
   // Attach payment provider script
-  const [isLoadingSrc] = useScript({
+  useScript({
     src,
     checkForExisting: true, // prevent multiple script injection
+    onload: () => {
+      dispatch({
+        type: SET_SRC_LOADED,
+      });
+    },
   });
 
   // Initialize payment provider
   useEffect(() => {
-    if (!state.hasLoadedScript && !isLoadingSrc && hasWindowGlobal) {
-      dispatch({
-        type: SET_SRC_LOADED,
-      });
+    if (hasLoadedScript && hasWindowGlobal) {
       initialize();
       attachEvents(dispatch);
     }
-  }, [isLoadingSrc]);
+  }, [hasLoadedScript]);
 
   // Todo: additional callbacks?
   // What do the forms need?
