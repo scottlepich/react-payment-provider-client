@@ -1,29 +1,12 @@
 const { build } = require("esbuild");
 
-const { dependencies, peerDependencies } = require("../package.json");
-
-const external = [
-  //   ...Object.keys(dependencies || {}),
-  ...Object.keys(peerDependencies || {}),
-];
-
-const sharedConfig = {
-  entryPoints: ["src/index.ts"],
-  bundle: true,
-  minify: true,
-  sourcemap: true,
-  external,
-};
+const { peerDependencies } = require("../package.json");
 
 build({
-  ...sharedConfig,
-  platform: "node", // for CJS
+  entryPoints: ["src/index.ts"],
+  bundle: true,
+  minify: false,
+  sourcemap: true,
+  external: Object.keys(peerDependencies || {}),
   outfile: "dist/index.js",
 });
-
-// build({
-//   ...sharedConfig,
-//   outfile: "dist/index.esm.js",
-//   platform: "neutral", // for ESM
-//   format: "esm",
-// });
