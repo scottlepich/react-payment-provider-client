@@ -17,7 +17,7 @@ const usePayment = (paymentType: PaymentType) => {
 
   useEffect(() => {
     if (!hasWindowGlobal) {
-      return; // Must be in a browser
+      throw new Error("Must be run in a browser with `window` object.");
     }
   }, [hasWindowGlobal]);
 
@@ -25,7 +25,8 @@ const usePayment = (paymentType: PaymentType) => {
   const { state, dispatch } = usePaymentContext();
 
   // Payment provider config
-  const { src, initialize, attachEvents } = useProvider(paymentType);
+  const { src, initialize, attachEvents, tokenizeCard } =
+    useProvider(paymentType);
 
   // Attach payment provider <script />
   useScript({
@@ -54,7 +55,7 @@ const usePayment = (paymentType: PaymentType) => {
   };
 
   // Provide state and callback(s)
-  return { state, clearErrors };
+  return { state, clearErrors, tokenizeCard };
 };
 
 export default usePayment;

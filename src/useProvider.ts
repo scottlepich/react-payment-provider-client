@@ -14,6 +14,7 @@ const useProvider = (paymentType: PaymentType) => {
           typeof window.Spreedly !== "undefined", // false, //typeof window?.Spreedly !== "undefined",
         initialize: spreedly.initializeSpreedly,
         attachEvents: spreedly.attachEvents,
+        tokenizeCard: spreedly.tokenizeCard,
         src: SPREEDLY_SCRIPT_URL,
       };
     // TODO: case PaymentType.Stripe:
