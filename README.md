@@ -44,7 +44,7 @@ So far we have spiked the form/iframe integration works in CFE network flow.
 
 The Spreedly script is included, `window.Spreedly` exists, and it replaces empty DOM elements with spreedly domain iframe content.
 
-Using a test form hacked into 
+Using a test form hacked into CFE returns a token.
 
 Spike is successful, next steps will be to attempt to integrate this lib with CFE in the network flow.
 
