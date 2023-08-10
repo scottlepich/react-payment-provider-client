@@ -11,6 +11,8 @@ import { CreditCardData } from "../types/spreedly";
 
 import { SpreedlyEvents } from "./constants";
 
+import { ContextShape } from "../context/PaymentContext";
+
 const { SET_3DS_EVENTS, SET_CREDIT_CARD, SET_ERRORS, SET_INPUTS, SET_READY } =
   ActionTypes;
 
@@ -29,7 +31,7 @@ export const initializeSpreedly = () => {
   }
 };
 
-export const attachEvents = ({ state, dispatch }: any) => {
+export const attachEvents = ({ state, dispatch }: ContextShape) => {
   if (window.Spreedly) {
     window.Spreedly.on(READY, () => {
       dispatch({
