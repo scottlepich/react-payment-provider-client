@@ -8,5 +8,6 @@ build({
   minify: false,
   sourcemap: true,
   external: Object.keys(peerDependencies || {}),
+  platform: "node",
   outfile: "dist/index.js",
 });
