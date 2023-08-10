@@ -6,7 +6,7 @@ build({
   bundle: true,
   entryPoints: ["src/index.ts"],
   external: Object.keys(peerDependencies || {}),
-  minify: false,
+  minify: true,
   outfile: "dist/index.js",
   platform: "node",
   sourcemap: true,
